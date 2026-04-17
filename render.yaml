@@ -7,7 +7,7 @@ region: oregon
 
 # 静态网站配置
 type: static
-buildCommand: "echo 'Building static site...'"
+buildCommand: "echo 'No build needed for static site'"
 publishPath: "."
 
 # 环境变量

@@ -1,0 +1,152 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tennis Coach - 智能网球教练</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <!-- 导航栏 -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="logo">
+                <h1>Tennis Coach</h1>
+            </div>
+            <ul class="nav-links">
+                <li><a href="#home" class="nav-link active">首页</a></li>
+                <li><a href="#video-analysis" class="nav-link">视频分析</a></li>
+                <li><a href="#text-analysis" class="nav-link">文字分析</a></li>
+                <li><a href="#knowledge" class="nav-link">网球知识</a></li>
+                <li><a href="#about" class="nav-link">关于我们</a></li>
+            </ul>
+        </div>
+    </nav>
+
+    <!-- 首页英雄区 -->
+    <section id="home" class="hero">
+        <div class="container">
+            <h1>提升你的网球技术</h1>
+            <p>专业的网球动作分析和指导，帮助你成为更好的网球选手</p>
+            <div class="cta-buttons">
+                <a href="#video-analysis" class="btn btn-primary">视频分析</a>
+                <a href="#text-analysis" class="btn btn-secondary">文字分析</a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 功能介绍 -->
+    <section class="features">
+        <div class="container">
+            <h2>核心功能</h2>
+            <div class="features-grid">
+                <div class="feature-card">
+                    <div class="feature-icon">🎥</div>
+                    <h3>视频分析</h3>
+                    <p>上传你的网球视频，获得专业的动作分析和改进建议</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">📝</div>
+                    <h3>文字分析</h3>
+                    <p>通过文字描述你的动作，获得详细的技术指导</p>
+                </div>
+                <div class="feature-card">
+                    <div class="feature-icon">❓</div>
+                    <h3>知识问答</h3>
+                    <p>解答你关于网球技术、规则和训练的问题</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 视频分析 -->
+    <section id="video-analysis" class="section">
+        <div class="container">
+            <h2>视频分析</h2>
+            <div class="analysis-form">
+                <div class="form-group">
+                    <label for="video-upload">上传网球视频</label>
+                    <input type="file" id="video-upload" accept="video/*" class="file-input">
+                    <div class="file-info" id="video-info">未选择文件</div>
+                </div>
+                <div class="form-group">
+                    <label for="stroke-type">击球类型</label>
+                    <select id="stroke-type" class="form-select">
+                        <option value="">请选择</option>
+                        <option value="forehand">正手</option>
+                        <option value="backhand">反手</option>
+                        <option value="serve">发球</option>
+                        <option value="volley">截击</option>
+                        <option value="other">其他</option>
+                    </select>
+                </div>
+                <div class="form-group">
+                    <label for="analysis-focus">分析重点</label>
+                    <input type="text" id="analysis-focus" placeholder="例如：发球动作、正手抽击等" class="form-input">
+                </div>
+                <div class="form-group">
+                    <label for="user-concern">你觉得哪里需要改进？</label>
+                    <textarea id="user-concern" rows="3" placeholder="请描述你觉得不满意的地方" class="form-textarea"></textarea>
+                </div>
+                <button id="analyze-video" class="btn btn-primary">开始分析</button>
+            </div>
+            <div id="video-analysis-result" class="analysis-result">
+                <!-- 分析结果将显示在这里 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 文字分析 -->
+    <section id="text-analysis" class="section">
+        <div class="container">
+            <h2>文字分析</h2>
+            <div class="analysis-form">
+                <div class="form-group">
+                    <label for="text-description">描述你的动作</label>
+                    <textarea id="text-description" rows="6" placeholder="请详细描述你的网球动作，包括握拍方式、站位、引拍、击球和随挥等环节" class="form-textarea"></textarea>
+                </div>
+                <button id="analyze-text" class="btn btn-primary">开始分析</button>
+            </div>
+            <div id="text-analysis-result" class="analysis-result">
+                <!-- 分析结果将显示在这里 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 网球知识 -->
+    <section id="knowledge" class="section">
+        <div class="container">
+            <h2>网球知识</h2>
+            <div class="knowledge-form">
+                <div class="form-group">
+                    <label for="knowledge-question">你的问题</label>
+                    <textarea id="knowledge-question" rows="3" placeholder="例如：如何改进发球力量？正手应该使用什么握拍方式？" class="form-textarea"></textarea>
+                </div>
+                <button id="ask-question" class="btn btn-primary">提问</button>
+            </div>
+            <div id="knowledge-answer" class="analysis-result">
+                <!-- 回答将显示在这里 -->
+            </div>
+        </div>
+    </section>
+
+    <!-- 关于我们 -->
+    <section id="about" class="section">
+        <div class="container">
+            <h2>关于我们</h2>
+            <p>Tennis Coach 是一个专业的网球技术分析平台，致力于帮助网球爱好者提升技术水平。我们的团队由专业网球教练和技术专家组成，通过先进的分析技术，为您提供个性化的技术指导。</p>
+            <p>无论您是初学者还是有经验的选手，我们都能为您提供有价值的建议和指导，帮助您在网球之路上不断进步。</p>
+        </div>
+    </section>
+
+    <!-- 页脚 -->
+    <footer class="footer">
+        <div class="container">
+            <p>&copy; 2026 Tennis Coach. 保留所有权利。</p>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="script.js"></script>
+</body>
+</html>

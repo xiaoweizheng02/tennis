@@ -1,0 +1,20 @@
+# Render配置文件
+# https://render.com/docs/static-sites
+
+# 项目信息
+name: tennis-coach
+region: oregon
+
+# 静态网站配置
+type: static
+buildCommand: "echo 'Building static site...'"
+publishPath: "."
+
+# 环境变量
+envVars:
+  - key: NODE_ENV
+    value: production
+
+# 自定义域名（可选）
+# customDomains:
+#   - your-domain.com

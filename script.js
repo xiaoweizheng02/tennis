@@ -24,6 +24,12 @@ document.addEventListener('DOMContentLoaded', function() {
     const videoUpload = document.getElementById('video-upload');
     const videoInfo = document.getElementById('video-info');
     
+    // 点击文件信息区域触发文件选择
+    videoInfo.addEventListener('click', function() {
+        videoUpload.click();
+    });
+    
+    // 文件选择后更新显示
     videoUpload.addEventListener('change', function() {
         if (this.files.length > 0) {
             videoInfo.textContent = this.files[0].name;

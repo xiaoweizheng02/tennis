@@ -1,55 +1,174 @@
----
-name: "tennis-coach"
-description: "智能网球教练网站，支持视频分析、文字描述分析和网球知识问答"
-version: "1.0.0"
-author: "Tennis Coach Team"
----
+# Tennis AI Coach - 智能网球教练系统
 
-# Tennis Coach 智能网球教练网站
+一个专业的网球动作分析与训练平台，通过AI技术帮助网球爱好者提升技术水平。
 
-一个专业的网球技术分析和指导网站，帮助网球爱好者提升技术水平。
+## 项目架构
 
-## 功能特性
+```
+/tennis-ai-coach
+ ├── /client                 # 前端（React + TypeScript）
+ │   ├── /src
+ │   │   ├── /pages          # 核心页面
+ │   │   ├── /components     # 通用组件
+ │   │   ├── /api            # API封装
+ │   │   ├── /ai             # AI相关功能
+ │   │   ├── /store          # 状态管理
+ │   │   ├── /utils          # 工具函数
+ │   │   ├── /config         # 配置文件
+ │   │   └── App.tsx
+ │   └── package.json
+ │
+ ├── /server                 # 后端（Node.js + Express）
+ │   ├── /src
+ │   │   ├── /controllers    # 控制器
+ │   │   ├── /services       # 服务
+ │   │   ├── /models         # 数据模型
+ │   │   ├── /routes          # 路由
+ │   │   └── server.ts
+ │   └── package.json
+ │
+ └── /ai-service             # AI推理服务
+     ├── pose_estimation.py
+     └── tennis_model.pth
+```
 
-- 🎥 **视频分析**：上传网球视频，获得专业的动作分析和改进建议
-- 📝 **文字描述分析**：通过文字描述获得技术指导
-- ❓ **网球知识问答**：解答网球相关问题
-- 📱 **响应式设计**：支持手机、平板和桌面设备
+## 核心功能
+
+### 1. 用户系统
+- 注册/登录
+- 个人档案管理
+- 水平定级（L1-L5）
+- 成长时间线
+- 历史视频库
+
+### 2. 动作分析核心
+- 视频/照片上传
+- AI骨骼点识别（2D/3D）
+- 专业球员标准库对比
+- 同屏视频对比
+- 角度/时序/击球点偏差标注
+- 量化评分（姿态、节奏、发力链、稳定性）
+
+### 3. 智能教学
+- 自动生成纠错报告
+- 针对性训练计划
+- 分级课程库
+- 易错动作示范与纠正
+
+### 4. 成长体系
+- 训练打卡
+- 进度曲线
+- 能力雷达图
+- 阶段性测评
+- 等级晋升
 
 ## 技术栈
 
-- 前端：HTML5, CSS3, JavaScript
-- 后端：静态网站（可扩展）
-- 部署：GitHub + Render
+### 前端
+- React 18
+- TypeScript
+- React Router
+- Zustand (状态管理)
+- Axios (API请求)
+- MediaPipe (姿态检测)
+- TensorFlow.js (AI推理)
+- Chart.js (数据可视化)
+- Framer Motion (动画效果)
 
-## 如何使用
+### 后端
+- Node.js
+- Express
+- MongoDB (数据存储)
+- JWT (身份验证)
+- Multer (文件上传)
 
-1. 访问网站
-2. 选择分析方式（视频或文字）
-3. 上传视频或输入文字描述
-4. 获得专业分析报告
-5. 根据建议进行练习
+### AI服务
+- MediaPipe Pose
+- TensorFlow
+- OpenCV
 
-## 本地运行
+## 快速开始
 
+### 前端开发
 ```bash
-# 克隆项目
-git clone <repository-url>
+cd client
+npm install
+npm run dev
+```
 
-# 打开 index.html 文件
-open index.html
+### 后端开发
+```bash
+cd server
+npm install
+npm run dev
+```
+
+### 构建生产版本
+```bash
+# 构建前端
+cd client
+npm run build
+
+# 构建后端
+cd ../server
+npm run build
 ```
 
 ## 部署
 
-1. 推送到 GitHub 仓库
-2. 在 Render 上创建新的静态网站
-3. 连接 GitHub 仓库
-4. 部署网站
+### 前端部署
+- 静态网站托管（Vercel、Netlify、GitHub Pages）
+- 容器化部署（Docker）
+
+### 后端部署
+- 云服务器（AWS、GCP、阿里云）
+- PaaS平台（Heroku、Render）
+- 容器化部署（Docker + Kubernetes）
+
+## API文档
+
+### 用户接口
+- `POST /api/user/login` - 登录
+- `POST /api/user/register` - 注册
+- `GET /api/user/profile` - 获取用户信息
+- `PUT /api/user/profile` - 更新用户信息
+- `PUT /api/user/password` - 修改密码
+
+### 分析接口
+- `POST /api/analyze/video` - 上传并分析视频
+- `GET /api/analyze/:id` - 获取分析结果
+- `GET /api/analyze/history` - 获取分析历史
+- `DELETE /api/analyze/:id` - 删除分析记录
+- `GET /api/analyze/professional-actions` - 获取专业动作库
+
+### 计划接口
+- `POST /api/plan` - 创建训练计划
+- `GET /api/plan/:id` - 获取训练计划
+- `GET /api/plan` - 获取所有训练计划
+- `PUT /api/plan/:id` - 更新训练计划
+- `DELETE /api/plan/:id` - 删除训练计划
+- `PUT /api/plan/:id/complete` - 标记计划完成
+- `GET /api/plan/recommended` - 获取推荐计划
+
+## 项目特点
+
+1. **专业的网球动作分析**：基于MediaPipe和专业网球知识，提供准确的动作评估
+2. **个性化训练计划**：根据分析结果自动生成针对性的训练计划
+3. **可视化数据展示**：通过图表和骨骼点可视化，直观展示动作问题
+4. **完整的成长体系**：记录训练进度，追踪能力提升
+5. **响应式设计**：支持桌面端和移动端
+
+## 未来规划
+
+1. **实时分析**：支持实时视频流分析
+2. **3D动作重建**：提供更直观的3D动作展示
+3. **社区功能**：用户可以分享训练成果和经验
+4. **教练指导**：接入专业教练在线指导
+5. **多语言支持**：支持中英文等多语言
 
 ## 贡献
 
-欢迎提交 Issue 和 Pull Request 来改进这个项目！
+欢迎提交Issue和Pull Request来改进这个项目！
 
 ## 许可证
 
